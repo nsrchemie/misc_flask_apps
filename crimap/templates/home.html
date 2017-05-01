@@ -7,6 +7,7 @@
 
     <script type="text/javascript">
       let map;
+      let marker;
       function initialize() { 
         let mapOptions = {
           center: new google.maps.LatLng(40.7527, -73.9772),
@@ -19,11 +20,15 @@
       }
 
       function placeMarker(location) {
-      	let marker = new google.maps.Marker({
+      	if (marker) {
+      		marker.setPosition(location);
+      	} else {
+      	marker = new google.maps.Marker({
       		position: location,
       		map: map
-      	});
-      }
+	      	});
+	    }
+	  }
      </script>
  
   </head>
