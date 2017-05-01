@@ -6,13 +6,23 @@
     </script>
 
     <script type="text/javascript">
+      let map;
       function initialize() { 
-        var mapOptions = {
+        let mapOptions = {
           center: new google.maps.LatLng(40.7527, -73.9772),
           zoom: 15
         };
-        var map = new
-        google.maps.Map(document.getElementById("map-canvas"),mapOptions);
+        map = new google.maps.Map(document.getElementById("map-canvas"),mapOptions);
+        google.maps.event.addListener(map, 'click', (event) => {
+        	placeMarker(event.latLng) 	
+        });
+      }
+
+      function placeMarker(location) {
+      	let marker = new google.maps.Marker({
+      		position: location,
+      		map: map
+      	});
       }
      </script>
  
