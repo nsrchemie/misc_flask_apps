@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link type="text/css" rel="stylesheet" href="{{url_for('static', filename='css/style.css') }}" />
     <script type="text/javascript"
       src="https://maps.googleapis.com/maps/api/js">
     </script>
@@ -28,6 +29,8 @@
       		map: map
 	      	});
 	    }
+	    document.getElementById('latitude').value = location.lat();
+ 		document.getElementById('longitude').value = location.lng();
 	  }
      </script>
  
@@ -35,7 +38,7 @@
     <body onload="initialize()">
     <h1>CrimeMap</h1>
   <p>A map of recent criminal activity in the Midtown area.</p>
-  <div id="map-canvas" style="width:70%; height:500px"></div>
+  <div id="map-canvas"></div>
 
   <div id="newcrimeform">
    <h2>Submit new crime</h2>
